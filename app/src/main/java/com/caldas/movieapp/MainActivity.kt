@@ -1,8 +1,10 @@
 package com.caldas.movieapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -50,24 +52,29 @@ fun MyApp(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun MainContent(movieList: List<String> = listOf("Titanic", "Inception", "300", "Avengers", "Mad Max",
-        "Mother", "Transformers", "Spider Man")) {
+fun MainContent(movieList: List<String> = listOf("Titanic", "Inception", "300", "Interstellar", "Mad Max",
+        "The Matrix", "Transformers", "Blade Runner")) {
     Column(modifier = Modifier.padding(12.dp)) {
         LazyColumn {
             items(items = movieList) {
-                MovieRow(movie = it)
+                MovieRow(movie = it) { movie ->
+                    Log.d("MOVIE", "MainContent: $movie")
+                }
             }
         }
     }
 }
 
 @Composable
-fun MovieRow(movie: String) {
+fun MovieRow(movie: String, onItemClick: (String) -> Unit) {
     Card(
         modifier = Modifier
             .padding(4.dp)
             .fillMaxWidth()
-            .height(130.dp),
+            .height(130.dp)
+            .clickable {
+                onItemClick(movie)
+            },
         shape = RoundedCornerShape(corner = CornerSize(16.dp)),
         elevation = 6.dp
     ) {
