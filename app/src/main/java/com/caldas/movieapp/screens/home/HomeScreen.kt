@@ -12,7 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.caldas.movieapp.MovieRow
+import com.caldas.movieapp.widgets.MovieRow
+import com.caldas.movieapp.model.Movie
+import com.caldas.movieapp.model.getMovies
 import com.caldas.movieapp.navigation.MovieScreens
 
 @Composable
@@ -32,8 +34,7 @@ fun HomeScreen(navController: NavController) {
 }
 
 @Composable
-fun MainContent(navController: NavController, movieList: List<String> = listOf("Titanic", "Inception",
-    "300", "Interstellar", "Mad Max", "The Matrix", "Transformers", "Blade Runner")) {
+fun MainContent(navController: NavController, movieList: List<Movie> = getMovies()) {
     Column(modifier = Modifier.padding(12.dp)) {
         LazyColumn {
             items(items = movieList) {
