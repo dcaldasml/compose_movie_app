@@ -1,5 +1,6 @@
 package com.caldas.movieapp.screens.home
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,6 +18,7 @@ import com.caldas.movieapp.model.Movie
 import com.caldas.movieapp.model.getMovies
 import com.caldas.movieapp.navigation.MovieScreens
 
+@ExperimentalAnimationApi
 @Composable
 fun HomeScreen(navController: NavController) {
     Scaffold(
@@ -33,6 +35,7 @@ fun HomeScreen(navController: NavController) {
     }
 }
 
+@ExperimentalAnimationApi
 @Composable
 fun MainContent(navController: NavController, movieList: List<Movie> = getMovies()) {
     Column(modifier = Modifier.padding(12.dp)) {

@@ -1,5 +1,6 @@
 package com.caldas.movieapp.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -9,6 +10,7 @@ import androidx.navigation.navArgument
 import com.caldas.movieapp.screens.details.DetailsScreen
 import com.caldas.movieapp.screens.home.HomeScreen
 
+@ExperimentalAnimationApi
 @Composable
 fun MovieNavigation() {
     val navController = rememberNavController()
