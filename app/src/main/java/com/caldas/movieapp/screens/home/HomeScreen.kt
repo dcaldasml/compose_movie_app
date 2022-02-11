@@ -1,6 +1,5 @@
 package com.caldas.movieapp.screens.home
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,8 +20,8 @@ fun HomeScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                backgroundColor = Color.Magenta,
-                elevation = 5.dp
+                backgroundColor = Color.Transparent,
+                elevation = 0.dp
             ) {
                 Text(text = "Movies")
             }
